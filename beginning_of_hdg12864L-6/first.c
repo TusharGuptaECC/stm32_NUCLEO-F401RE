@@ -10,7 +10,7 @@ void displayChar(uint32_t , uint32_t , int , unsigned char );
 
 void provideClock(void)
 {
-    // by default 8MHz HSI is selected
+    // by default clock frequency is 1 MHz
     // providing clk to port A,B,C 
     RCC->AHB1ENR = 0x00000007;
 }
