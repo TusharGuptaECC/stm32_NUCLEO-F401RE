@@ -8,7 +8,7 @@ The primary goal of this project is to analyze and compare the performance of di
 
 - **Bresenham's Line Algorithm**
 - **DDA (Digital Differential Analyzer) Algorithm**
-- **Midpoint Line Algorithm**
+- **Custom Line Algorithm(experimental)**
 
 These algorithms are tested by drawing lines on the **HDG12864L-6 GLCD** via **GPIO interfacing**, using **STM32 Nucleo-F401RE** as the microcontroller.
 
@@ -50,7 +50,7 @@ These algorithms are tested by drawing lines on the **HDG12864L-6 GLCD** via **G
 
 - **Microcontroller**: STM32 Nucleo-F401RE
 - **Display**: HDG12864L-6 GLCD
-- **Development Environment**: STM32CubeIDE / Keil
+- **Development Environment**: Keil
 - **Programming Language**: C
 
 ## 📜Conclusion
