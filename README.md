@@ -1,55 +1,63 @@
-# STM32F4 GLCD Line Drawing Firmware
+# Line Drawing Algorithm Performance Test on HDG12864L-6 GLCD using STM32 Nucleo-F401RE
 
-## Overview
-This repository contains firmware for an STM32F4 microcontroller to control a **128x64 Graphic LCD (GLCD)**. The code includes implementations of various **line-drawing algorithms** such as:
+This project is focused on testing the efficiency of various line-drawing algorithms on a low-pixel graphical display. It implements multiple line-drawing techniques on the **HDG12864L-6** graphical LCD using an **STM32 Nucleo-F401RE** microcontroller.
 
-- **Bresenham's Line Algorithm** (`displayLine` function)
-- **Digital Differential Analyzer (DDA) Algorithm** (`DDA` function)
-- **Optimized Line Drawing** (`DrawLine3` function)
+## 📌 Project Overview
 
-The firmware interfaces with the GLCD using GPIOs and provides basic drawing functionality.
+The primary goal of this project is to analyze and compare the performance of different line-drawing algorithms on a **low-resolution display (128x64 pixels)**. The implemented algorithms include:
 
-## Features
-- **Clock Configuration**: Initializes the STM32F4 clock and GPIO ports.
-- **GPIO Control**: Configures GPIOA and GPIOB as output ports.
-- **GLCD Initialization**: Calls `glcdInit()` to set up the display.
-- **Line Drawing**: Implements multiple algorithms to draw lines on the GLCD.
-- **Dot Plotting**: Uses `displayDot(x, y, OT)` to set individual pixels.
-- **Delay Function**: Simple loop-based delay for timing control.
+- **Bresenham's Line Algorithm**
+- **DDA (Digital Differential Analyzer) Algorithm**
+- **Midpoint Line Algorithm**
 
-## Hardware Requirements
-- **Microcontroller**: STM32F4 series (e.g., STM32F407VG)
-- **Display**: 128x64 GLCD (e.g., HDG12864L6)
-- **Connections**:
-  - GPIOA and GPIOB for data/control signals
-  - External clock if needed for performance optimization
+These algorithms are tested by drawing lines on the **HDG12864L-6 GLCD** via **GPIO interfacing**, using **STM32 Nucleo-F401RE** as the microcontroller.
 
-## How It Works
-1. **Clock Initialization**: `provideClock()` enables GPIO clocks.
-2. **GPIO Setup**: Configures GPIOA and GPIOB as output push-pull.
-3. **GLCD Initialization**: Calls `glcdInit()` to set up the screen.
-4. **Drawing Functions**:
-   - `displayLine(x0, y0, x1, y1)`: Uses Bresenham’s algorithm to draw lines.
-   - `DDA(x0, y0, x1, y1)`: Uses the DDA algorithm for smoother lines.
-   - `DrawLine3(x1, y1, x2, y2)`: Alternative optimized algorithm for fast line drawing.
-5. **Main Function Execution**: Calls `displayLine(22,11,23,14)` to demonstrate line drawing.
+## 🔧 Features
 
-## Scope for Improvement
-- **Optimize delay function**: The current loop-based delay is inefficient. Consider using **hardware timers**.
-- **Improve display functions**: Add support for **rectangle, circle, and text rendering**.
-- **Use DMA for GPIO control**: This will reduce CPU load and improve performance.
-- **Enhance modularity**: Separate GLCD control and drawing algorithms into different files.
-- **Add touchscreen support**: If the GLCD module supports touch input, implement touch handling.
+- Implements multiple line-drawing algorithms for performance testing.
+- Uses **GPIO** to interface with the **HDG12864L-6** GLCD.
+- Supports **coordinate-based pixel plotting** for testing.
+- Allows easy modification to test different algorithms.
+- Uses **STM32 HAL-based register-level programming**.
 
-## Future Enhancements
-- **Text rendering functions**
-- **Sprite and bitmap support**
-- **Dynamic framebuffer for smooth rendering**
+## 🚀 How It Works
 
-## How to Run
-1. Flash the firmware onto the STM32F4 microcontroller using **Keil uVision** or **STM32CubeIDE**.
-2. Connect the GLCD to the GPIO pins as per the datasheet.
-3. Power up the circuit and observe the graphical output on the screen.
+1. **GLCD Initialization**
+   - The `glcdInit()` function initializes the **HDG12864L-6** graphical LCD.
+2. **Line Drawing Algorithms**
+   - The project includes different line-drawing techniques to render straight lines between given coordinate points.
+3. **Performance Testing**
+   - By executing each algorithm under the same conditions, their execution time and visual performance can be compared.
 
-## License
-This project is open-source and can be modified or improved for educational and personal use.
+## 📁 Code Structure
+
+```
+📂 Project Directory
+├── first.c                  # Main firmware containing algorithm implementations
+├── HDG12864L6.h            # GLCD header file for display functions
+├── HDG12864L6.c            # GLCD source file for display functions
+├── README.md               # Project documentation
+```
+
+## 🛠 Scope for Improvement
+
+- **Optimize Performance**: Improve the execution speed by modifying data transfer methods (SPI/I2C instead of GPIO toggling).
+- **Benchmarking**: Add execution time measurement to compare the efficiency of each algorithm.
+- **Advanced Algorithms**: Implement **Wu’s anti-aliased line algorithm** for smoother rendering.
+- **Expand Functionality**: Add support for **circles, rectangles, and other shapes** for further graphical tests.
+
+## 📌 Requirements
+
+- **Microcontroller**: STM32 Nucleo-F401RE
+- **Display**: HDG12864L-6 GLCD
+- **Development Environment**: STM32CubeIDE / Keil
+- **Programming Language**: C
+
+## 📜 Conclusion
+
+This project serves as a **benchmarking tool** for evaluating line-drawing algorithms on a low-pixel graphical display. It is useful for embedded graphics development and performance analysis of **efficient rendering techniques**.
+
+---
+
+💡 *Feel free to contribute or suggest improvements!* 🚀
+
