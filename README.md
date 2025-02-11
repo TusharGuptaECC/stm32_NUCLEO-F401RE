@@ -1,6 +1,6 @@
 # Line Drawing Algorithm Performance Test on HDG12864L-6 GLCD using STM32 Nucleo-F401RE
 
-This project is focused on testing the efficiency of various line-drawing algorithms on a low-pixel graphical display. It implements multiple line-drawing techniques on the **HDG12864L-6** graphical LCD using an **STM32 Nucleo-F401RE** microcontroller.
+This project is focused on testing the efficiency of various line-drawing algorithms on a low-resolution graphical display. It implements multiple line-drawing techniques on the **HDG12864L-6** graphical LCD using an **STM32 Nucleo-F401RE** microcontroller.
 
 ## Project Overview
 
