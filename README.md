@@ -53,7 +53,7 @@ These algorithms are tested by drawing lines on the **HDG12864L-6 GLCD** via **G
 - **Development Environment**: Keil
 - **Programming Language**: C
 
-## 📜Conclusion
+## Conclusion
 
 This project serves as a **benchmarking tool** for evaluating line-drawing algorithms on a low-pixel graphical display. It is useful for embedded graphics development and performance analysis of **efficient rendering techniques**.
 
